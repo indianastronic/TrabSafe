@@ -17,7 +17,6 @@ import prestadorPerfilRoutes from "./routes/prestador.routes.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
 /* Resolver __dirname no ES Module */
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,15 +25,9 @@ const __dirname = path.dirname(__filename);
 app.use(cors());
 app.use(express.json());
 
-/* Servir frontend */
-app.use(express.static(path.join(__dirname, "public")));
-
-/* Garantir index */
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-/* APIs */
+/* =========================
+   ROTAS DA API (PRIMEIRO)
+========================= */
 app.use("/api/auth", authRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/funcionarios", funcionariosRoutes);
@@ -44,13 +37,18 @@ app.use("/api/ia", iaRoutes);
 app.use("/api/documentos", documentosRoutes);
 app.use("/api/prestador", prestadorPerfilRoutes);
 
+/* =========================
+   FRONTEND
+========================= */
+app.use(express.static(path.join(__dirname, "public")));
+
+/* Fallback apenas para GET (SPA) */
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
 /* Uploads */
 app.use("/uploads", express.static("uploads"));
-
-/* Fallback */
-app.use((req, res) => {
-  res.status(404).send("Rota não encontrada");
-});
 
 app.listen(PORT, () => {
   console.log(`🔥 TrabSafe rodando na porta ${PORT}`);
