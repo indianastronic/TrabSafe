@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --verde: #16a34a;
+  --verde-claro: #dcfce7;
+  --azul: #0ea5e9;
+  --azul-escuro: #0f172a;
+  --cinza: #f8fafc;
+  --texto: #334155;
+  --branco: #ffffff;
+  --borda: #e5e7eb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--cinza);
+  color: var(--texto);
+}
+
+/* HEADER */
+header {
+  background: var(--branco);
+  border-bottom: 1px solid var(--borda);
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header img {
+  height: 42px;
+}
+
+nav a {
+  margin: 0 16px;
+  font-weight: 500;
+  color: var(--texto);
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--azul);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* BOTÕES */
+.btn {
+  background: linear-gradient(90deg, var(--verde), var(--azul));
+  color: white;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 1px solid var(--borda);
+  color: var(--texto);
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #ecfeff, #ffffff);
+  padding: 90px 40px;
+}
+
+.hero-layout {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--verde-claro);
+  color: var(--verde);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: var(--azul-escuro);
+}
+
+.hero h1 span {
+  color: var(--verde);
+}
+
+.hero p {
+  margin: 20px 0;
+  max-width: 600px;
+  font-size: 1.1rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.hero-list {
+  list-style: none;
+}
+
+.hero-list li {
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+/* CARDS DIREITA */
+.hero-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero-card {
+  background: white;
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.06);
+}
+
+.hero-card.destaque {
+  background: linear-gradient(135deg, var(--verde), var(--azul));
+  color: white;
+}
+
+/* SERVIÇOS */
+.section-spacing {
+  padding: 80px 40px 140px;
+}
+
+.section-title.center {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 50px;
+}
+
+.services {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: white;
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+/* FOOTER */
+footer {
+  background: var(--azul-escuro);
+  color: white;
+  text-align: center;
+  padding: 50px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - TrabSafe</title>
+  <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body>
+
+  <div class="auth-container">
+    <h1><span>Trab</span>Safe</h1>
+
+    <form id="loginForm">
+      <input
+        type="email"
+        id="email"
+        placeholder="Email"
+        required
+      >
+
+      <input
+        type="password"
+        id="senha"
+        placeholder="Senha"
+        required
+      >
+
+      <select id="tipo" required>
+        <option value="">Tipo de conta</option>
+        <option value="empresa">Empresa</option>
+        <option value="prestador">Prestador</option>
+      </select>
+
+      <button type="submit">Entrar</button>
+    </form>
+
+    <p>
+      Não tem conta?
+      <a href="cadastro.html">Cadastrar</a>
+    </p>
+  </div>
+
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

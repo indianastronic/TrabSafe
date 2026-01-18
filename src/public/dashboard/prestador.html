@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>TrabSafe | Painel do Prestador</title>
+
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+
+<body>
+  <!-- TOPO -->
+  <header class="top-bar">
+  <img src="../assets/logo.png" class="logo">
+
+  <button class="btn-logout" onclick="logout()">Sair</button>
+</header>
+
+
+  <main class="container">
+    <h2>Painel do Prestador</h2>
+
+    <!-- CARDS -->
+    <section class="cards">
+      <div class="card">
+        <h4>Solicitações Pendentes</h4>
+        <span id="pendentes">0</span>
+      </div>
+
+      <div class="card">
+        <h4>Em Andamento</h4>
+        <span id="andamento">0</span>
+      </div>
+
+      <div class="card">
+        <h4>Concluídas</h4>
+        <span id="concluidas">0</span>
+      </div>
+    </section>
+
+    <!-- LISTA -->
+    <section class="grafico-box">
+      <h3>Solicitações Recebidas</h3>
+
+      <table width="100%" border="1" cellpadding="8">
+        <thead>
+          <tr>
+            <th>Empresa</th>
+            <th>Serviço</th>
+            <th>Status</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody id="listaSolicitacoes"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="../assets/js/prestador.js"></script>
+
+  <script>
+    function logout() {
+      localStorage.clear();
+      location.href = "/index.html";
+    }
+  </script>
+</body>
+</html>

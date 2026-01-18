@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Assistente SST - TrabSafe</title>
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+
+<header class="top-bar">
+  <h1>Assistente SST</h1>
+
+  <button class="btn-secondary" onclick="window.history.back()">
+    Voltar
+  </button>
+</header>
+
+<main class="container">
+
+  <section class="chat-container">
+    <div class="chat-header">
+      🤖 Encontre seu Prestador de SST
+    </div>
+
+    <div class="chat-box" id="chat">
+      <!-- mensagens via JS -->
+    </div>
+
+    <div class="chat-input">
+      <input
+        id="mensagem"
+        placeholder="Descreva o serviço ou necessidade..."
+        onkeydown="if(event.key === 'Enter') enviarMensagem()"
+      />
+      <button onclick="enviarMensagem()">Enviar</button>
+    </div>
+  </section>
+
+</main>
+
+<script src="../assets/js/ia.js"></script>
+</body>
+</html>

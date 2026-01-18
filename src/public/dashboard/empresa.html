@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel da Empresa - TrabSafe</title>
+
+  <!-- CSS PRINCIPAL -->
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- ================= TOPO ================= -->
+<header class="top-bar">
+  <h1>TrabSafe</h1>
+
+  <div class="top-actions">
+    <button class="btn-ia" onclick="window.location.href='/ia.html'">
+      🤖 Encontrar Prestador
+    </button>
+
+    <button class="btn-logout" onclick="logout()">
+      Sair
+    </button>
+  </div>
+</header>
+
+
+<main class="container">
+
+  <!-- ================= DASHBOARD ================= -->
+  <section class="dashboard">
+    <h2>Dashboard</h2>
+
+    <div class="cards">
+      <div class="card">
+        📅 Treinamentos vencendo
+        <span id="treinamentosVencendo">0</span>
+      </div>
+
+      <div class="card">
+        🧾 ASOs vencendo
+        <span id="asosVencendo">0</span>
+      </div>
+
+      <div class="card">
+        ✅ Treinamentos válidos
+        <span id="treinamentosValidos">0</span>
+      </div>
+    </div>
+
+    <!-- gráfico controlado -->
+    <div class="grafico-wrapper">
+      <canvas id="grafico"></canvas>
+    </div>
+  </section>
+
+  <!-- ================= FUNCIONÁRIOS ================= -->
+  <section class="funcionarios">
+    <div class="section-header">
+      <h2>Colaboradores</h2>
+
+      <button class="btn-secondary" onclick="abrirModal()">
+        ➕ Adicionar colaborador
+      </button>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>ASO (Início / Fim)</th>
+            <th>Treinamento (Início / Fim)</th>
+            <th>Área</th>
+            <th class="col-acoes">Ações</th>
+          </tr>
+        </thead>
+
+        <tbody id="tabelaFuncionarios">
+          <!-- preenchido via JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <button class="btn-secondary" onclick="gerarPDF()">
+      📄 Exportar relatório
+    </button>
+  </section>
+
+</main>
+
+<!-- ================= MODAL ================= -->
+<div class="modal" id="modalFuncionario">
+  <div class="modal-content">
+    <h3>Novo Colaborador</h3>
+
+    <div class="form-group">
+      <label>Nome</label>
+      <input id="nomeFunc" placeholder="Nome do funcionário">
+    </div>
+
+    <div class="form-group">
+      <label>ASO</label>
+      <div class="form-row">
+        <input type="date" id="asoInicio">
+        <input type="date" id="asoFim">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Treinamento</label>
+      <div class="form-row">
+        <input type="date" id="treinoInicio">
+        <input type="date" id="treinoFim">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Área liberada</label>
+      <input id="areaFunc" placeholder="Área liberada">
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-primary" onclick="salvarFuncionario()">
+        Salvar
+      </button>
+
+      <button class="btn-secondary" onclick="fecharModal()">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="../assets/js/empresa.js"></script>
+</body>
+</html>
